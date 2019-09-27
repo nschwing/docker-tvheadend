@@ -6,7 +6,7 @@ ARG ARGTABLE_VER="2.13"
 ARG XMLTV_VER="v0.6.1"
 
 # environment settings
-ARG TZ="Europe/Oslo"
+ARG TZ="Europe/Berlin"
 ARG TVHEADEND_COMMIT
 ENV HOME="/config"
 
@@ -311,6 +311,9 @@ RUN \
 	python \
 	tar \
 	uriparser \
+	udev \
+	w-scan \
+	socat \
 	wget \
 	x264 \
 	x265 \
@@ -322,7 +325,11 @@ RUN \
  mkdir -p /picons && \
  curl -o \
         /picons.tar.bz2 -L \
-        https://lsio-ci.ams3.digitaloceanspaces.com/picons/picons.tar.bz2
+        https://lsio-ci.ams3.digitaloceanspaces.com/picons/picons.tar.bz2 && \
+ echo "**** Add Sundtek Driver ****" && \
+ wget http://www.sundtek.de/media/sundtek_netinst.sh \
+ 	&& chmod 777 sundtek_netinst.sh \
+ 	&& ./sundtek_netinst.sh -easyvdr
 
 # copy local files and buildstage artifacts
 COPY --from=buildstage /tmp/argtable-build/usr/ /usr/
