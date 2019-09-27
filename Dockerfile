@@ -312,7 +312,7 @@ RUN \
 	tar \
 	uriparser \
 	udev \
-	w-scan \
+	w_scan \
 	socat \
 	wget \
 	x264 \
