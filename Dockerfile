@@ -311,8 +311,7 @@ RUN \
 	python \
 	tar \
 	uriparser \
-	udev \
-	w_scan \
+	eudev \
 	socat \
 	wget \
 	x264 \
