@@ -327,7 +327,7 @@ RUN \
         https://lsio-ci.ams3.digitaloceanspaces.com/picons/picons.tar.bz2 && \
  echo "**** Add Sundtek Driver ****" && \
  curl -o /config/sundtek_netinst_testing.sh \
- 	-L http://www.sundtek.de/media/sundtek_netinst_testing.sh &&
+ 	-L http://www.sundtek.de/media/sundtek_netinst_testing.sh \
  	&& chmod 777 /config/sundtek_netinst_testing.sh \
  	&& ./sundtek_netinst_testing.sh -docker -use-custom-path=/config
 
