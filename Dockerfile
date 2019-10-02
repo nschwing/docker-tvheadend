@@ -326,9 +326,10 @@ RUN \
         /picons.tar.bz2 -L \
         https://lsio-ci.ams3.digitaloceanspaces.com/picons/picons.tar.bz2 && \
  echo "**** Add Sundtek Driver ****" && \
- wget http://www.sundtek.de/media/sundtek_netinst.sh \
- 	&& chmod 777 sundtek_netinst.sh \
- 	&& ./sundtek_netinst.sh -easyvdr
+ curl -o /config/sundtek_netinst_testing.sh \
+ 	http://www.sundtek.de/media/sundtek_netinst_testing.sh &&
+ 	&& chmod 777 /config/sundtek_netinst_testing.sh \
+ 	&& ./sundtek_netinst_testing.sh -docker -use-custom-path=/config
 
 # copy local files and buildstage artifacts
 COPY --from=buildstage /tmp/argtable-build/usr/ /usr/
