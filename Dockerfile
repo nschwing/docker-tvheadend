@@ -329,7 +329,7 @@ RUN \
  curl -o /config/sundtek_netinst_testing.sh \
  	-L http://www.sundtek.de/media/sundtek_netinst_testing.sh \
  	&& chmod 777 /config/sundtek_netinst_testing.sh \
- 	&& ./sundtek_netinst_testing.sh -docker -use-custom-path=/config
+ 	&& /config/sundtek_netinst_testing.sh -docker -use-custom-path=/config
 
 # copy local files and buildstage artifacts
 COPY --from=buildstage /tmp/argtable-build/usr/ /usr/
